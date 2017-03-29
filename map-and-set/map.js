@@ -1,3 +1,4 @@
+// Helpers for better logging in Node.js
 let util = require('util');
 let log = obj => console.log(util.inspect(obj, { colors: true }));
 let logFirstKey = obj => log(Object.keys(obj)[0]);
@@ -82,7 +83,7 @@ log(myMap); //=> Map { [Function] => 'Hello, World' }
 // === Goes by value
 
 let myMap = new Map();
-var key = NaN;
+let key = NaN;
 myMap.set(key, 'Hello, World');
 log(myMap.get(key)); //=> 'Hello, World'
 
