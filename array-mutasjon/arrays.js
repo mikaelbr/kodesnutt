@@ -15,6 +15,7 @@ console.log(arr); //=> [1, 42, 3]
 
 // Shares reference
 function delayedLog (arr) {
+  // defer logging to end of message queue.
   setTimeout(() => console.log(arr), 0);
 }
 
@@ -74,3 +75,7 @@ console.log(arr2); //=> [-10, -5, 1, 2, 3]
 var arr = [1, 2, 3];
 console.log(arr.slice().reverse()); //=> [3, 2, 1]
 console.log(arr); //=> [1, 2, 3]
+
+// Please note: Avoiding mutation isn't always needed and
+// hiding mutation as implementation details for performance gain
+// doesn't hit the same risk for bugs and state leaking.
