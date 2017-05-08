@@ -37,7 +37,7 @@ console.log(arr.unshift(-10, -5)); //=> 5 <- new array length
 console.log(arr.shift()); //=> -10 <- shifted element
 console.log(arr);
 
-Also with other array functions
+// Also with other array functions
 
 var arr = [1, 2, 3];
 console.log(arr.reverse()); //=> [3, 2, 1]
