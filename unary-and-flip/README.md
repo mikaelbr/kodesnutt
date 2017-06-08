@@ -1,3 +1,3 @@
 # Unary & Flip
 
-Episode: TBA
+Episode: https://youtu.be/Fi40jHeZJfg
