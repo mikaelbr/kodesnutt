@@ -1,0 +1,15 @@
+{
+  "name": "immutable-validator",
+  "version": "1.0.0",
+  "description": "Tool for building validation function",
+  "main": "validator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": ["validation", "live-stream", "kodesnutt"],
+  "author": "Mikael Brevik <mikaelbre@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
+}
