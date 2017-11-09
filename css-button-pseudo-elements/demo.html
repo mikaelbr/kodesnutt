@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Button Demo</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      font-size: 16px;
+    }
+
+    body {
+      background: radial-gradient(#fff 10%, #ddd 100%);
+      display: flex;
+    }
+
+    button {
+      margin: auto;
+      padding: 1rem 4rem;
+      border: 0;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 0.2rem;
+
+      box-shadow: 0 0 5rem 1rem rgba(0, 0, 0, .3);
+      outline: 0;
+      cursor: pointer;
+      transition: all 50ms ease-in;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before,
+    button::after {
+      content: "";
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      transition: transform 200ms ease-in-out;
+    }
+
+    button::before {
+      background: linear-gradient(to right, #2ecc71, #27ae60);
+      transform: translateX(-100%);
+    }
+
+    button::after {
+      background: linear-gradient(to bottom, #3498db, #2980b9);
+      transform: translateY(-100%);
+    }
+
+    button:hover::before {
+      transform: translateX(0);
+    }
+
+    button:active::after {
+      transform: translateY(0);
+    }
+
+    button:active {
+      transform: scale(0.97, 0.97);
+      box-shadow: 0 0 3rem 0.3rem rgba(0, 0, 0, .3);
+    }
+
+    button span {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <button>
+    <span>Press me</span>
+  </button>
+</body>
+
+</html>
