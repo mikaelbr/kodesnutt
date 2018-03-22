@@ -1,22 +1,26 @@
 const fs = require('fs');
 const path = require('path');
 const { getFilteredUrl } = require('./utils');
+const { error } = require('./sinks');
 
-function error(res, code, message) {
-  res.writeHead(code, {
-    'Content-Type': 'text/html'
-  });
-  return res.end(`${code} - ${message}`, 'utf8');
-}
+const baseFile = path.join(__dirname, '..', 'public');
 
 function fileServe(filename) {
-  return function(req, res) {
-    fs
-      .createReadStream(
-        path.join(__dirname, '..', 'public', getFilteredUrl(filename))
-      )
-      .on('error', () => error(res, 404, 'Not found'))
-      .pipe(res);
+  return async function(req, res) {
+    const file = path.join(
+      baseFile,
+      getFilteredUrl(filename)
+    );
+    return new Promise(function(resolve) {
+      const stream = fs.createReadStream(file);
+
+      stream
+        .on('error', () =>
+          resolve(error(res, 404, 'Not found'))
+        )
+        .pipe(res)
+        .on('end', () => resolve(stream));
+    });
   };
 }
 
@@ -24,7 +28,7 @@ function staticFiles(req, res) {
   if (req.url.includes('..')) {
     return error(res, 400, 'Bad Request');
   }
-  fileServe(req.url)(req, res);
+  return fileServe(req.url)(req, res);
 }
 
 function app([endpoint, ...rest]) {

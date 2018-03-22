@@ -15,13 +15,11 @@ function isPath(req, p) {
 }
 
 function endpoint(method, p, cb) {
-  function middleware(req, res, next) {
+  return async function middleware(req, res, next) {
     const isHit = isMethod(req, method) && isPath(req, p);
     const fn = isHit ? cb : next;
     return fn(req, res);
-  }
-  middleware.path = p;
-  return middleware;
+  };
 }
 
 function partial(fn, ...args) {
