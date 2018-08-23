@@ -1,0 +1,21 @@
+{
+  "name": "solution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "node tools/generate.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.2",
+    "glob-promise": "^3.4.0",
+    "markdown-it": "^8.4.2",
+    "recursive-copy": "^2.0.9"
+  }
+}
